@@ -389,8 +389,8 @@ MonoBehaviour:
   _warriorObject: {fileID: 1645850191}
   _farmerObject: {fileID: 511285073}
   _endGame: {fileID: 1397847192}
-  _warriorCount: {fileID: 0}
-  _farmerCount: {fileID: 0}
+  _warriorCount: {fileID: 1694186492}
+  _farmerCount: {fileID: 912923022}
 --- !u!114 &122788221
 MonoBehaviour:
   m_ObjectHideFlags: 0

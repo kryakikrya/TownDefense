@@ -42,7 +42,28 @@ public class WaveTimer : MonoBehaviour
     }
     private void Fight()
     {
-
+        int _curEnemies = _enemies;
+        if (_curEnemies <= _warriorObject._warrior)
+        {
+            Debug.Log("a");
+            _warriorObject._warrior -= _curEnemies;
+            _warriorCount.text = _warriorObject._warrior.ToString();
+            return;
+        }
+        else if (_curEnemies <= _warriorObject._warrior + _farmerObject._farmer / 3)
+        {
+            Debug.Log("b");
+            _curEnemies -= _warriorObject._warrior;
+            _farmerObject._farmer -= _curEnemies*3;
+            _farmerCount.text = _farmerObject._farmer.ToString();
+            _warriorCount.text = 0.ToString();
+            return;
+        }
+        else
+        {
+            Debug.Log("c");
+            _endGame.SetActive(true);
+        }
     }
 
 
