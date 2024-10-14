@@ -12,7 +12,7 @@ public class Hire : MonoBehaviour
     [SerializeField] private int _workerType;
     public int _farmer;
     public int _warrior;
-    [SerializeField] private TextMeshProUGUI _workerText;
+    [SerializeField] public TextMeshProUGUI _workerText;
     bool _sliderCheck = false;
     [SerializeField] private Timer _timerObject;
     [SerializeField] private Button _button;

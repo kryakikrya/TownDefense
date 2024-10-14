@@ -21,6 +21,11 @@ public class WaveTimer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _maxTime_wave = PlayerPrefs.GetInt("_waveTime");
+        _warriorObject._warrior = PlayerPrefs.GetInt("_startWarrior");
+        _warriorObject._workerText.text = _warriorObject._warrior.ToString(); 
+        _farmerObject._farmer = PlayerPrefs.GetInt("_startFarmer");
+        _farmerObject._workerText.text = _farmerObject._farmer.ToString();
         _curTime_wave = _maxTime_wave;
     }
 

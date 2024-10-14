@@ -17,6 +17,8 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _wheat = PlayerPrefs.GetInt("_startWheat");
+        _wheatText.text = _wheat.ToString();
         _hireObject._farmer = 1;
     }
 
