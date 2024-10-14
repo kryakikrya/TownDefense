@@ -13,6 +13,7 @@ public class Timer : MonoBehaviour
     public int _wheat;
     [SerializeField] public TextMeshProUGUI _wheatText;
     [SerializeField] Hire _hireObject;
+    [SerializeField] PauseScript _pauseScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,7 +23,10 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if( _pauseScript._isPaused == true)
+        {
+            return;
+        }
         if (_curTime >= 0)
         {
             _curTime -= Time.deltaTime;

@@ -17,6 +17,7 @@ public class WaveTimer : MonoBehaviour
     [SerializeField] private GameObject _endGame;
     [SerializeField] private TextMeshProUGUI _warriorCount;
     [SerializeField] private TextMeshProUGUI _farmerCount;
+    [SerializeField] PauseScript _pauseScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,10 @@ public class WaveTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_pauseScript._isPaused == true)
+        {
+            return;
+        }
         if (_curTime_wave >= 0)
         {
             _curTime_wave -= Time.deltaTime;

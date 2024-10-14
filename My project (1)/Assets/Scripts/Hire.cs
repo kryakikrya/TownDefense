@@ -17,6 +17,7 @@ public class Hire : MonoBehaviour
     [SerializeField] private Timer _timerObject;
     [SerializeField] private Button _button;
     [SerializeField] private int _price;
+    [SerializeField] PauseScript _pauseScript;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,10 @@ public class Hire : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_pauseScript._isPaused == true)
+        {
+            return;
+        }
         if (_timerObject._wheat < _price)
         {
             _button.enabled = false;
