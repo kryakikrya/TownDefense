@@ -10,7 +10,6 @@ public class Hire : MonoBehaviour
     [SerializeField] private float _maxTime;
     [SerializeField] private float _curTime;
     [SerializeField] private int _workerType;
-    public int _farmer;
     public int _warrior;
     [SerializeField] public TextMeshProUGUI _workerText;
     bool _sliderCheck = false;
@@ -58,8 +57,8 @@ public class Hire : MonoBehaviour
                 }
                 if (_workerType == 1)
                 {
-                    _farmer++;
-                    _workerText.text = _farmer.ToString();
+                    PlayerPrefs.SetInt("_startFarmer", PlayerPrefs.GetInt("_startFarmer") + 1);
+                    _workerText.text = PlayerPrefs.GetInt("_startFarmer").ToString();
                 }
                 _curTime = _maxTime;
                 _sliderCheck = false;

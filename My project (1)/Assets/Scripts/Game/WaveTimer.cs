@@ -21,11 +21,14 @@ public class WaveTimer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (PlayerPrefs.GetInt("_waveTime") == 0)
+        {
+            PlayerPrefs.SetInt("_waveTime", 30);
+        }
         _maxTime_wave = PlayerPrefs.GetInt("_waveTime");
         _warriorObject._warrior = PlayerPrefs.GetInt("_startWarrior");
         _warriorObject._workerText.text = _warriorObject._warrior.ToString(); 
-        _farmerObject._farmer = PlayerPrefs.GetInt("_startFarmer");
-        _farmerObject._workerText.text = _farmerObject._farmer.ToString();
+        _farmerObject._workerText.text = PlayerPrefs.GetInt("_startFarmer").ToString();
         _curTime_wave = _maxTime_wave;
     }
 
@@ -60,12 +63,12 @@ public class WaveTimer : MonoBehaviour
             _warriorCount.text = _warriorObject._warrior.ToString();
             return;
         }
-        else if (_curEnemies <= _warriorObject._warrior + _farmerObject._farmer / 3)
+        else if (_curEnemies <= _warriorObject._warrior + PlayerPrefs.GetInt("_startFarmer") / 3)
         {
             Debug.Log("b");
             _curEnemies -= _warriorObject._warrior;
-            _farmerObject._farmer -= _curEnemies*3;
-            _farmerCount.text = _farmerObject._farmer.ToString();
+            PlayerPrefs.SetInt("_startFarmer", PlayerPrefs.GetInt("_startFarmer") - _curEnemies * 3);
+            _farmerCount.text = PlayerPrefs.GetInt("_startFarmer").ToString();
             _warriorCount.text = 0.ToString();
             return;
         }

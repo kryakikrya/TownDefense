@@ -19,7 +19,6 @@ public class Timer : MonoBehaviour
     {
         _wheat = PlayerPrefs.GetInt("_startWheat");
         _wheatText.text = _wheat.ToString();
-        _hireObject._farmer = 1;
     }
 
     // Update is called once per frame
@@ -36,7 +35,7 @@ public class Timer : MonoBehaviour
         }
         else
         {
-            _wheat += _hireObject._farmer;
+            _wheat += PlayerPrefs.GetInt("_startFarmer");
             _curTime = _maxTime;
             _wheatText.text = _wheat.ToString();
         }
