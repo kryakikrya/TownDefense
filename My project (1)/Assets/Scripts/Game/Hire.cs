@@ -21,6 +21,7 @@ public class Hire : MonoBehaviour
     void Start()
     {
         _curTime = _maxTime;
+        PlayerPrefs.SetInt("_curFarmer", PlayerPrefs.GetInt("_startFarmer"));
     }
 
     // Update is called once per frame
@@ -57,8 +58,8 @@ public class Hire : MonoBehaviour
                 }
                 if (_workerType == 1)
                 {
-                    PlayerPrefs.SetInt("_startFarmer", PlayerPrefs.GetInt("_startFarmer") + 1);
-                    _workerText.text = PlayerPrefs.GetInt("_startFarmer").ToString();
+                    PlayerPrefs.SetInt("_curFarmer", PlayerPrefs.GetInt("_startFarmer") + 1);
+                    _workerText.text = PlayerPrefs.GetInt("_curFarmer").ToString();
                 }
                 _curTime = _maxTime;
                 _sliderCheck = false;

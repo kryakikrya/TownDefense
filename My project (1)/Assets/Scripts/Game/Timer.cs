@@ -14,6 +14,8 @@ public class Timer : MonoBehaviour
     [SerializeField] public TextMeshProUGUI _wheatText;
     [SerializeField] Hire _hireObject;
     [SerializeField] PauseScript _pauseScript;
+    [SerializeField] GameObject _winPanel;
+    [SerializeField] GameObject _gamePanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +37,12 @@ public class Timer : MonoBehaviour
         }
         else
         {
-            _wheat += PlayerPrefs.GetInt("_startFarmer");
+            _wheat += PlayerPrefs.GetInt("_curFarmer");
+            if (_wheat > 1000 && PlayerPrefs.GetInt("_curFarmer") > 30)
+            {
+                _gamePanel.SetActive(false);
+                _winPanel.SetActive(true);
+            }
             _curTime = _maxTime;
             _wheatText.text = _wheat.ToString();
         }

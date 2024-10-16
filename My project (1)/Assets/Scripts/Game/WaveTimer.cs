@@ -25,6 +25,10 @@ public class WaveTimer : MonoBehaviour
         {
             PlayerPrefs.SetInt("_waveTime", 30);
         }
+        if (PlayerPrefs.GetInt("_startFarmer") == 0)
+        {
+            PlayerPrefs.SetInt("_startFarmer", 1);
+        }
         _maxTime_wave = PlayerPrefs.GetInt("_waveTime");
         _warriorObject._warrior = PlayerPrefs.GetInt("_startWarrior");
         _warriorObject._workerText.text = _warriorObject._warrior.ToString(); 
